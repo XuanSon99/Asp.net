@@ -1,0 +1,33 @@
+﻿@model BTL_Nhom10.Areas.Admin.Models.DanhMuc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="margin">
+    <h2>Chi Tiết Danh Mục</h2>
+
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaDM)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MaDM)
+            </dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenDM)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TenDM)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.MaDM.Trim() }) |
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>

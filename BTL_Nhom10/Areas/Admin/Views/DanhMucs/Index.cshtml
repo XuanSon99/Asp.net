@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BTL_Nhom10.Areas.Admin.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="margin">
+    <h2>Danh mục</h2>
+
+    <p>
+        @Html.ActionLink("Thêm mới", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaDM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenDM)
+            </th>
+            <th>Thao tác</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDM)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaDM.Trim() }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.MaDM.Trim() }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM.Trim() })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
