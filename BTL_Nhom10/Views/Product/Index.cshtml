@@ -25,7 +25,7 @@
                     <p>Giá: <span class="price">@Html.DisplayFor(modelItem => item.DonGia)₫</span></p>
                     <p><i class="fas fa-check-circle"></i>Thông số: @Html.DisplayFor(modelItem => item.ThongSo)</p>
                     <p><i class="fas fa-check-circle"></i>Trạng thái: @Html.DisplayFor(modelItem => item.TrangThai)</p>
-                    <p class="add-cart text-center"><a href="">Đặt hàng</a></p>
+                    <p class="add-cart text-center"><a href="/Cart/AddToCart/@item.MaSP">Mua ngay</a></p>
                 </div>
             </div>
         }

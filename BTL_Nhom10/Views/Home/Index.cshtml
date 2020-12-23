@@ -53,7 +53,7 @@
                             <p>@Html.DisplayFor(modelItem => item.TenSP)</p>
                         </a>
                         <span class="price">@Html.DisplayFor(modelItem => item.DonGia)₫</span><br>
-                        <a class="buy-now" href="">Mua ngay</a>
+                        <a class="buy-now" href="/Cart/AddToCart/@item.MaSP">Mua ngay</a>
                         <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})" class="detail buy-now">
                             Chi tiết
                         </a>
@@ -84,7 +84,7 @@
                             <p>@Html.DisplayFor(modelItem => item.TenSP)</p>
                         </a>
                         <span class="price">@Html.DisplayFor(modelItem => item.DonGia)₫</span><br>
-                        <a class="buy-now" href="">Mua ngay</a>
+                        <a class="buy-now" href="/Cart/AddToCart/@item.MaSP">Mua ngay</a>
                         <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})" class="detail buy-now">
                             Chi tiết
                         </a>
@@ -112,7 +112,7 @@
                             <p>@Html.DisplayFor(modelItem => item.TenSP)</p>
                         </a>
                         <span class="price">@Html.DisplayFor(modelItem => item.DonGia)₫</span><br>
-                        <a class="buy-now" href="">Mua ngay</a>
+                        <a class="buy-now" href="/Cart/AddToCart/@item.MaSP">Mua ngay</a>
                         <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})" class="detail buy-now">
                             Chi tiết
                         </a>
@@ -127,3 +127,11 @@
         </a>
     </div>
 }
+
+    <script>
+        $(document).ready(function () {
+            $(".buy-now").click(function () {
+                localStorage.setItem("amount", Number(localStorage.getItem("amount")) + 1);
+            });
+        });
+    </script>

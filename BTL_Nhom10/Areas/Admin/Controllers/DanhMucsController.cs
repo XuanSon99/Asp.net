@@ -131,7 +131,7 @@ namespace BTL_Nhom10.Areas.Admin.Controllers
             }
             catch(Exception ex)
             {
-                ViewBag.error = "Không thể xóa, danh mục này vẫn tồn tại sản phẩm!";
+                ViewBag.error = "Không thể xóa, danh mục này vẫn tồn tại sản phẩm!" +ex.Message;
                 return View("Delete", danhMuc);
             }
         }

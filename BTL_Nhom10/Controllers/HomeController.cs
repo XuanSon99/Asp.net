@@ -9,21 +9,22 @@ namespace BTL_Nhom10.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
         Database db = new Database();
+        // GET: Home
         public ActionResult Index()
         {
-            var sanphams = db.SanPhams.Select(h => h);
+            List<SanPham> sanphams = new List<SanPham>();
+            sanphams = db.SanPhams.Select(h => h).ToList();
             return View(sanphams);
-        }
-        public PartialViewResult _Category()
-        {
-            var danhmucs = db.DanhMucs.Select(n => n);
-            return PartialView(danhmucs);
         }
         public PartialViewResult _Nav()
         {
-            var danhmucs = db.DanhMucs.Select(n => n);
+            var danhmucs = db.DanhMucs.Select(h => h);
+            return PartialView(danhmucs);
+        }
+        public PartialViewResult _Category()
+        {
+            var danhmucs = db.DanhMucs.Select(h => h);
             return PartialView(danhmucs);
         }
     }

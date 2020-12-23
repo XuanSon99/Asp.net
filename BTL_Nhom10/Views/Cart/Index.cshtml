@@ -1,0 +1,82 @@
+﻿@model BTL_Nhom10.Models.Cart
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    <div id="wrap-inner">
+        <div id="list-cart">
+            <h3>Giỏ hàng</h3>
+            @if (Model != null)
+            {
+                <table class="table text-center">
+                    <tr class="active">
+                        <td>Ảnh</td>
+                        <td>Tên sản phẩm</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td>Thao tác</td>
+                    </tr>
+                    @foreach (var item in Model.Items)
+                    {
+                        double total = Double.Parse(item.shopping_product.DonGia.ToString()) * Double.Parse(item.shopping_quantity.ToString());
+                        <tr>
+                            @{ 
+                                string path = "~/wwwroot/images/" + item.shopping_product.AnhSP;
+                            }
+                            <td><img width="100" class="img-responsive" src="@Url.Content(path)"></td>
+                            <td>@Html.DisplayFor(model => item.shopping_product.TenSP)</td>
+                            <td>
+                                @using (Html.BeginForm("UpdateCart", "Cart"))
+                                {
+                                    <div class="form-group" style="display: flex; justify-content: center">
+                                        <input type="hidden" value="@item.shopping_product.MaSP" name="ID_SP" />
+                                        <input class="form-control" type="number" value="@item.shopping_quantity" name="quantity" style="width: 50%">
+                                        <button type="submit" style="border: none; outline: none; background: none; cursor: pointer; margin-left: 20px">
+                                        <i class="fas fa-sync-alt"></i></button>
+                                    </div>
+                                }
+                            </td>
+                            <td><span class="price">@Html.DisplayFor(model => item.shopping_product.DonGia)₫</span></td>
+                            <td><span class="price">@total₫</span></td>
+                            <td><a href="/Cart/Remove_Cart/@item.shopping_product.MaSP.Trim()" style="text-decoration: none">❌</a></td>
+                        </tr>
+                    }
+
+                </table>
+            }
+            <div class="row" id="total-price">
+                <div class="col-12">
+                    <p class="total-price alert alert-success">Tổng tiền: <b>@Model.Total_Money()₫</b></p>
+                </div>
+            </div>
+            <div id="confirm">
+                <h3>Xác nhận mua hàng</h3>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input required type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Họ tên:</label>
+                        <input required type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại:</label>
+                        <input required type="number" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="add">Địa chỉ:</label>
+                        <input required type="text" class="form-control" id="add" name="add">
+                    </div>
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn my-btn btn-default">Thực hiện đặt hàng</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
