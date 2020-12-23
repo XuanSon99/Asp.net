@@ -1,0 +1,22 @@
+﻿@model IEnumerable<BTL_Nhom10.Models.SanPham>
+
+@{
+    Layout = null;
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="product-item col-lg-3 col-md-4 col-6">
+        <span class="pay">Trả góp 0%</span>
+        <a href='@Url.Action("Details", "Home")'>
+            <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
+            <p>@Html.DisplayFor(modelItem => item.TenSP)</p>
+        </a>
+        <span class="price">@Html.DisplayFor(modelItem => item.DonGia) ₫</span><br>
+        <a class="buy-now" href="/ShoppingCart/AddToCart/@item.MaSP">Mua ngay</a>
+        <a href='@Url.Action("Details", "Home")' class="detail ajax-add-to-card buy-now">
+            Chi tiết
+        </a>
+    </div>
+}
