@@ -326,7 +326,7 @@ nav a#pull {
 	justify-content: center;
 }
 #body .menu .nav-item a{
-	text-transform: uppercase;
+	text-transform: capitalize;
 	padding: 10px 20px;
 	color: #999;
 	transition: all 300ms ease;
@@ -450,7 +450,7 @@ nav a#pull {
 	color: #000;
 }
 .menu-item a {
-	padding: 10px 70% 10px 0;
+	padding: 10px 45% 10px 0;
 	transition: all 300ms ease;
 	font-weight: 600;
 	color: #242424;

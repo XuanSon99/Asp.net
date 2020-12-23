@@ -1,0 +1,17 @@
+﻿@model IEnumerable<BTL_Nhom10.Areas.Admin.Models.DanhMuc>
+<div id="sidebar" class="col-md-3">
+    <nav id="menu">
+        <ul>
+            <li class="menu-item">danh mục sản phẩm</li>
+            @foreach (var item in Model)
+            {
+                <li class="menu-item" style="text-transform: capitalize;">
+                    <a href="@Url.Action("Index", "Category", new { id = item.MaDM.Trim()})">
+                        @Html.DisplayFor(modelItem => item.TenDM)
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+

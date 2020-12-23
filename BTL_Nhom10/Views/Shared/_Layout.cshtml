@@ -25,12 +25,13 @@
                     </a>
                 </div>
                 <div id="search" class="col-sm-6 col-9">
-                    <form method="get" role="search" action="">
-                        <input type="text" class="form-control" name="result" placeholder="Nhập từ khóa ...">   
-                        <a href='@Url.Action("Search", "Home")'>
-                            <input type="button" name="submit" value="Search">
+                    @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+                    {
+                        @Html.TextBox("search_query", "", new { placeholder = "Tên sản phẩm..." }) 
+                        <a>
+                            <input type="submit" value="Tìm kiếm" />
                         </a>
-                    </form>
+                    }
                 </div>
                 <div id="cart" class="col-sm-3 col-3">
                     <a href='@Url.Action("Cart", "Home")'>
@@ -50,26 +51,9 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                @Html.ActionLink("Trang chủ", "Index", "Home", null, new { @class = "nav-link" })
-                            </li>
-                            <li class="nav-item">
-                                @Html.ActionLink("Giới thiệu", "About", "Home", null, new { @class = "nav-link" })
-                            </li>
-                            <li class="nav-item">
-                                @Html.ActionLink("Liên hệ", "Contact", "Home", null, new { @class = "nav-link" })
-                            </li>
-                            <li class="nav-item">
-                                @Html.ActionLink("Đăng nhập", "Login", "Login", null, new { @class = "nav-link" })
-                            </li>
-                            <li class="nav-item">
-                                @Html.ActionLink("Đăng ký", "Index", "Register", null, new { @class = "nav-link" })
-                            </li>
-                            <li class="nav-item">
-                                @Html.ActionLink("Giỏ hàng", "Cart", "Home", null, new { @class = "nav-link" })
-                            </li>
-                        </ul>
+                        @{
+                            Html.RenderAction("_Nav", "Home");
+                        }
                     </div>
                 </div>
             </nav>
@@ -77,38 +61,16 @@
         @RenderSection("SlideShow", required: false)
         <div class="container home">
             <div class="row main-content">
-                <div id="sidebar" class="col-md-3">
-                    <nav id="menu">
-                        <ul>
-                            <li class="menu-item">danh mục sản phẩm</li>
-                            <li class="menu-item">
-                                <a href='@Url.Action("Category", "Home")'>
-                                    Iphone
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="">Macbook</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="">iMac</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="">Apple TV</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="">iPad</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="">Mac Mini</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="">AirPods</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                @{ 
+                    Html.RenderAction("_Category", "Home");
+                }
                 <div id="main" class="col-md-9">
                     @RenderBody()
+                </div>
+            </div>
+            <div class="row main-content">
+                <div class="col-12">
+                    @RenderSection("Watch", required: false)
                 </div>
             </div>
         </div>

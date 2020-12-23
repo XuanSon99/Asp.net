@@ -3,47 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BTL_Nhom10.Areas.Admin.Models;
 
 namespace BTL_Nhom10.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Home
+        Database db = new Database();
         public ActionResult Index()
         {
-            return View();
+            var sanphams = db.SanPhams.Select(h => h);
+            return View(sanphams);
         }
-
-        public ActionResult About()
+        public PartialViewResult _Category()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var danhmucs = db.DanhMucs.Select(n => n);
+            return PartialView(danhmucs);
         }
-
-        public ActionResult Contact()
+        public PartialViewResult _Nav()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult Cart()
-        {
-            return View();
-        }
-
-        public ActionResult Details()
-        {
-            return View();
-        }
-
-        public ActionResult Search()
-        {
-            return View();
-        }
-        public ActionResult Category()
-        {
-            return View();
+            var danhmucs = db.DanhMucs.Select(n => n);
+            return PartialView(danhmucs);
         }
     }
 }

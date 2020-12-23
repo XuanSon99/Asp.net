@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<BTL_Nhom10.Areas.Admin.Models.SanPham>
+@{
     ViewBag.Title = "Trang chủ";
 }
 
@@ -36,210 +37,93 @@
 
 <div id="wrap-inner">
     <div class="products special-pro">
-        <h3><span><i class="fab fa-gripfire"></i>Sản phẩm nổi bật</span></h3>
+        <h3><span><i class="fas fa-mobile-alt"></i>Iphone</span></h3>
         <div class="product-list row">
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
+            @foreach (var item in Model)
+            {
+                if (item.TenSP.Contains("Iphone"))
+                {
+                    <div class="product-item col-lg-3 col-md-4 col-6">
+                        <span class="pay">Trả góp 0%</span>
+                        <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})">
+                            @{
+                                string path = "~/wwwroot/images/" + item.AnhSP;
+                            }
+                            <img src="@Url.Content(path)" class="img-thumbnail">
+                            <p>@Html.DisplayFor(modelItem => item.TenSP)</p>
+                        </a>
+                        <span class="price">@Html.DisplayFor(modelItem => item.DonGia)₫</span><br>
+                        <a class="buy-now" href="">Mua ngay</a>
+                        <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})" class="detail buy-now">
+                            Chi tiết
+                        </a>
+                    </div>
+                }
+            }
         </div>
     </div>
     <div class="banner products">
         <a href="">
-            <img src="~/image/banner.jpg" alt="">
+            <img src="https://tungiphone.vn/wp-content/uploads/2020/10/banner-apple-watch.jpg" />
         </a>
     </div>
     <div class="products new-pro">
-        <h3><i class="fab fa-gripfire"></i>Sản phẩm mới</h3>
+        <h3><i class="fas fa-laptop"></i>MacBook</h3>
         <div class="product-list row">
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
-            <div class="product-item col-lg-3 col-md-4 col-6">
-                <span class="pay">Trả góp 0%</span>
-                <a href='@Url.Action("Details", "Home")'>
-                    <img src="~/image/iMac-21inch.jpg" class="img-thumbnail">
-                    <p>iMac 4K 21.5-inch 2019</p>
-                </a>
-                <span class="price">23.000.000₫</span><br>
-                <a class="buy-now" href="">Mua ngay</a>
-                <a href='@Url.Action("Details", "Home")' class="detail buy-now">
-                    Chi tiết
-                </a>
-            </div>
+            @foreach (var item in Model)
+            {
+                if (item.TenSP.Contains("MacBook"))
+                {
+                    <div class="product-item col-lg-3 col-md-4 col-6">
+                        <span class="pay">Trả góp 0%</span>
+                        <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})">
+                            @{
+                                string path = "~/wwwroot/images/" + item.AnhSP;
+                            }
+                            <img src="@Url.Content(path)" class="img-thumbnail">
+                            <p>@Html.DisplayFor(modelItem => item.TenSP)</p>
+                        </a>
+                        <span class="price">@Html.DisplayFor(modelItem => item.DonGia)₫</span><br>
+                        <a class="buy-now" href="">Mua ngay</a>
+                        <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})" class="detail buy-now">
+                            Chi tiết
+                        </a>
+                    </div>
+                }
+            }
         </div>
     </div>
 </div>
+@section Watch{
+    <div class="products new-pro">
+        <h3><i class="fab fa-gripfire"></i>Apple Watch</h3>
+        <div class="product-list row">
+            @foreach (var item in Model)
+            {
+                if (item.TenSP.Contains("Watch"))
+                {
+                    <div class="product-item col-lg-3 col-md-4 col-6">
+                        <span class="pay">Trả góp 0%</span>
+                        <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})">
+                            @{
+                                string path = "~/wwwroot/images/" + item.AnhSP;
+                            }
+                            <img src="@Url.Content(path)" class="img-thumbnail">
+                            <p>@Html.DisplayFor(modelItem => item.TenSP)</p>
+                        </a>
+                        <span class="price">@Html.DisplayFor(modelItem => item.DonGia)₫</span><br>
+                        <a class="buy-now" href="">Mua ngay</a>
+                        <a href="@Url.Action("Index", "Product", new { id = item.MaSP.Trim()})" class="detail buy-now">
+                            Chi tiết
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="banner products">
+        <a href="">
+            <img src="https://bizweb.dktcdn.net/100/176/601/collections/file-banner-mba-2018-1279x300.png?v=1540911894867" />
+        </a>
+    </div>
+}

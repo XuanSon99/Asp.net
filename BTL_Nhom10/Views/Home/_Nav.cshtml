@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BTL_Nhom10.Areas.Admin.Models.DanhMuc>
+<ul class="navbar-nav">
+    <li class="nav-item">
+        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+    </li>
+    @foreach (var item in Model)
+    {
+        <li class="nav-item">
+            <a href="@Url.Action("Index", "Category", new { id = item.MaDM.Trim()})" class="nav-link">
+                @{
+                    @Html.DisplayFor(modelItem => item.TenDM)
+                }
+            </a>
+        </li>
+    }
+</ul>

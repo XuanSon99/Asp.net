@@ -42,6 +42,7 @@
 
         [Required(ErrorMessage = "Đơn giá không được để trống!")]
         [Display(Name = "Đơn giá")]
+        [DisplayFormat(DataFormatString = "{0:#,###}")]
         public int DonGia { get; set; }
 
         [Display(Name = "Danh mục")]
