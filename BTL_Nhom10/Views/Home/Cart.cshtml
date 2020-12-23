@@ -30,7 +30,7 @@
                     </td>
                     <td><span class="price">20.000.000đ</span></td>
                     <td><span class="price">20.000.000đ</span></td>
-                    <td><a href="">❌</a></td>
+                    <td><a href="#" onclick="delete_product()">❌</a></td>
                 </tr>
             </table>
             <div class="row" id="total-price">
@@ -38,7 +38,7 @@
                     Tổng: <span class="total-price">10.000.000d</span>
                 </div>
                 <div class="col-12">
-                    <a href="" class="my-btn btn">Xóa giỏ hàng</a>
+                    <a href="" class="my-btn btn" onclick="deleteAllProduct()">Xóa giỏ hàng</a>
                     <a href="" class="my-btn btn">Cập nhật</a>
                     <a href="" class="my-btn btn">Mua tiếp</a>
                 </div>
@@ -70,5 +70,15 @@
         </div>
     </div>
 </div>
+<script>
+    var delete_product = function () {
+        isConfirm = confirm("Bạn có chắc chắn muốn xóa?");
+        if (isConfirm) {
+            alert("Xóa thành công!");
+        }
+    }
+    var deleteAllProduct = function () {
 
+    }
+</script>
 
