@@ -123,5 +123,9 @@ namespace BTL_Nhom10.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Login", "Home");
+        }
     }
 }

@@ -24,5 +24,10 @@ namespace BTL_Nhom10.Controllers
             }
             return View(sanphams);
         }
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Login", "Home");
+        }
     }
+
 }

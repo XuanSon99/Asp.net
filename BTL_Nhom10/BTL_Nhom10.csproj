@@ -260,7 +260,10 @@
     <Content Include="Content\details.css" />
     <Content Include="Content\email.css" />
     <Content Include="Content\home.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\Register.css" />
     <Content Include="Content\search.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -356,6 +359,8 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

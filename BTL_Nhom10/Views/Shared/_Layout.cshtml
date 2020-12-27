@@ -10,6 +10,7 @@
     @RenderSection("StyleSheet", required: false)
     <link href="~/Content/home.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
@@ -18,14 +19,14 @@
 </head>
 <body>
     <header id="header">
-        <div class="container">
+        
             <div class="row">
-                <div id="logo" class="col-sm-3 col-12">
+                <div id="logo" class="col-sm-2 col-12">
                     <a href='@Url.Action("Index", "Home")'>
                         <i class="fab fa-phoenix-squadron">ima</i>
                     </a>
                 </div>
-                <div id="search" class="col-sm-6 col-9">
+                <div id="search" class="col-sm-5 col-7">
                     @using (Html.BeginForm("Index", "Search", FormMethod.Post))
                     {
                         @Html.TextBox("search_query", "", new { placeholder = "Tên sản phẩm..." }) 
@@ -43,8 +44,28 @@
                             </span><i class="fab fa-opencart"></i>
                     </a>
                 </div>
+                <div id="login" class="col-sm-2 col-2">
+                    @if (Session["TaiKhoan1"] != null)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a style="color:aliceblue">Xin chào, @Session["TaiKhoan1"]</a></li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Home", htmlAttributes: new { @style = "font-size: small;color:yellow" })</li>
+                        </ul>
+                    }
+                    else
+                    {
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Register","Home")"><span class="glyphicon glyphicon-user"></span>  Đăng ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Login","Home")"><span class="glyphicon glyphicon-log-in"></span>  Đăng nhập</a>
+                    </li>
+                </ul>
+                    }
+                </div>
             </div>
-        </div>
+ 
     </header>
 
     <section id="body">
