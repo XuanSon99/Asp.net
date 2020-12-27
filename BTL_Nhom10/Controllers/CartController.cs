@@ -28,6 +28,7 @@ namespace BTL_Nhom10.Controllers
             {
                 GetCart().Add(pro);
             }
+            
             return RedirectToAction("Index", "Cart");
         }
 
@@ -39,6 +40,8 @@ namespace BTL_Nhom10.Controllers
                 return RedirectToAction("Index", "Cart");
             }
             Cart cart = Session["Cart"] as Cart;
+            float price = cart.Total_Price();
+            ViewData["Price"] = price;
             return View(cart);
         }
         public ActionResult UpdateCart(FormCollection form)

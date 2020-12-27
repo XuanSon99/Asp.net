@@ -202,6 +202,7 @@
     <Compile Include="Areas\Admin\Models\SanPham.cs" />
     <Compile Include="Areas\Admin\Models\TaiKhoan.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\DonHangsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -310,11 +311,6 @@
     <Content Include="Areas\Admin\Views\SanPhams\Details.cshtml" />
     <Content Include="Areas\Admin\Views\SanPhams\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SanPhams\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Details.cshtml" />
@@ -356,6 +352,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\DonHangs\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

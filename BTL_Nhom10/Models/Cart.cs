@@ -44,13 +44,19 @@ namespace BTL_Nhom10.Models
                 item.shopping_quantity = quantity;
             }
         }
+         
         public string Total_Money()
         {
             CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
             string total = items.Sum(s => s.shopping_product.DonGia * s.shopping_quantity).ToString("#,###", cul.NumberFormat);
             return total;
         }
-        public int total_quantity()
+            public float Total_Price()
+            {
+                float total = items.Sum(s => s.shopping_product.DonGia * s.shopping_quantity);
+                return total;
+            }
+    public int total_quantity()
         {
             var total = items.Sum(s => s.shopping_quantity);
             return total;

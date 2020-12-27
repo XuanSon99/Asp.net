@@ -38,8 +38,8 @@ namespace BTL_Nhom10.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DonHang>()
-                .Property(e => e.MaDH)
-                .IsFixedLength();
+                .Property(e => e.MaDH);
+                
 
             modelBuilder.Entity<DonHang>()
                 .HasMany(e => e.ChiTietDHs)

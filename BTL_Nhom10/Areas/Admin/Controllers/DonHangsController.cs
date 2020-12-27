@@ -143,5 +143,9 @@ namespace BTL_Nhom10.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Login", "Home");
+        }
     }
 }
