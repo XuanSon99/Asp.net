@@ -1,0 +1,58 @@
+﻿@model BTL_Nhom10.Models.TaiKhoan
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link href="~/Content/Register.css" rel="stylesheet" />
+
+</head>
+<body>
+   
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal forma">
+                <h1>Đăng ký</h1>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <h5>Tài khoản</h5>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TaiKhoan1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TaiKhoan1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h5>Mật khẩu</h5>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h5>Email</h5>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit">Đăng ký</button>
+                    </div>
+                </div>
+                <p class="return">@Html.ActionLink("Quay lại", "Login")</p>
+            </div>
+        }
+  
+</body>
+</html>

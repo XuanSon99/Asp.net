@@ -66,5 +66,10 @@ namespace BTL_Nhom10.Controllers
             
             return cart.total_quantity(); ;
         }
+
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Login", "Home");
+        }
     }
 }

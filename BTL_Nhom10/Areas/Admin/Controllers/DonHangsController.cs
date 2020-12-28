@@ -59,7 +59,7 @@ namespace BTL_Nhom10.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Lỗi nhập dữ liệu!" + ex.Message;
+                ViewBag.Error = "Lỗi nhập dữ liệu!";
                 return View(donHang);
             }
         }
@@ -97,7 +97,7 @@ namespace BTL_Nhom10.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Lỗi nhập dữ liệu!" + ex.Message;
+                ViewBag.Error = "Lỗi nhập dữ liệu!";
                 return View(donHang);
             }
         }
@@ -130,7 +130,7 @@ namespace BTL_Nhom10.Areas.Admin.Controllers
             }
             catch(Exception ex)
             {
-                ViewBag.Error = "Không xóa được bản ghi này!" + ex.Message;
+                ViewBag.Error = "Không xóa được bản ghi này!";
                 return View("Delete", donHang);
             }
             }
@@ -142,6 +142,10 @@ namespace BTL_Nhom10.Areas.Admin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Login", "Home");
         }
     }
 }

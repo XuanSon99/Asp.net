@@ -15,11 +15,13 @@ namespace BTL_Nhom10.Models
         public string TaiKhoan1 { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
         [StringLength(20)]
         public string MatKhau { get; set; }
 
         [Required]
         [StringLength(50)]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         public bool Level { get; set; }

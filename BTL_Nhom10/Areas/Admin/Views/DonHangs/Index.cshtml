@@ -54,8 +54,7 @@
                     @Html.DisplayFor(modelItem => item.TongTien)
                 </td>
                 <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaDH.Trim() }) |
-                    @Html.ActionLink("Thông tin", "Details", new { id = item.MaDH.Trim() }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.MaDH.Trim() }) |
                     @Html.ActionLink("Xóa", "Delete", new { id = item.MaDH.Trim() })
                 </td>
             </tr>

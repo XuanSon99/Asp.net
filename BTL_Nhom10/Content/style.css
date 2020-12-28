@@ -1,0 +1,65 @@
+﻿#login
+{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+#logo
+{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+#header .row{
+    margin: 0px !important;
+}
+.nameLogin {
+    color: white;
+}
+.account-info a{
+    cursor: pointer;
+}
+.account-info {
+    position: relative;
+}
+.account-info .detail-account {
+    position: absolute;
+    height: 0;
+    background: #333;
+    top: 100%;
+    left: 0;
+    transition: all 300ms ease;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.account-info:hover .detail-account{
+    height: 90px;
+    padding: 10px 0;
+}
+.detail-account span a:hover {
+    color: #fff !important;
+    text-decoration: none;
+}
+.detail-account span a {
+    display: block;
+}
+.detail-account p {
+    font-weight: 500;
+    cursor: default;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    padding: 5px 20px;
+}
+

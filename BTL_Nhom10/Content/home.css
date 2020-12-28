@@ -837,6 +837,10 @@ body{
 	margin-right: 10px;
 	margin-bottom: 3px;
 }
+#product-img img {
+	width: 290px;
+	height: auto;
+}
 @media (max-width: 1200px) {
 	#fanpage h3 {
 		margin-left: 0;
