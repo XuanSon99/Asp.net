@@ -22,16 +22,16 @@
             {
                 @Html.AntiForgeryToken()
                 <div class="form-group loginItem">
-                    <p style="color:white">Tài khoản</p>
+                    <p class="ten">Tài khoản</p>
                     @Html.TextBoxFor(m => m.TaiKhoan1, "", new { @class = "form-control", @placeholder = "Tài khoản" })
                 </div>
                 <div class="form-group loginItem">
-                    <p style="color:white">Mật khẩu</p>
+                    <p class="ten">Mật khẩu</p>
                     @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control", @placeholder = "Mật khẩu" })
                 </div>
                 <button type="submit" name="submit"><a>Login</a></button>
             }
-            <p style="color:white; padding-left: 20px;">@ViewBag.Error</p>
+            <p class="aaa">@ViewBag.Error</p>
         </div>
         <div class="circleBottom"></div>
 

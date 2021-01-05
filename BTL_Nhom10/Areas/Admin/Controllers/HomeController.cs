@@ -63,12 +63,20 @@ namespace BTL_Nhom10.Areas.Admin.Controllers
         {
             if(ModelState.IsValid)
             {
-                var user = db.TaiKhoans.Where(u => u.TaiKhoan1.Equals(TaiKhoan1) && u.MatKhau.Equals(MatKhau)).ToList();
-                if(user.Count() > 0)
+                var user = db.TaiKhoans.Where(u => u.TaiKhoan1.Equals(TaiKhoan1) && u.MatKhau.Equals(MatKhau)).FirstOrDefault();
+                if(user !=null)
                 {
-                    Session["TaiKhoan1"] = user.FirstOrDefault().TaiKhoan1;
-                    Session["MatKhau"] = user.FirstOrDefault().MatKhau;
-                    return RedirectToAction("Index");
+                    if (user.Level == true)
+                    {
+                        Session["TaiKhoan1"] = user.TaiKhoan1;
+           
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ViewBag.Error = "Không đủ quyền truy cập!";
+                        return View();
+                    }
 
                 }
                 else

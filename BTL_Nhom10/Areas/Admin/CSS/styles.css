@@ -1176,4 +1176,7 @@ button {
         transform: scale(1.04);
         color: rgb(219, 116, 214);
     }
-
+p #error
+{
+    color: red;
+}
